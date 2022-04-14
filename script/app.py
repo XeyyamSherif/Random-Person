@@ -1,7 +1,7 @@
 import requests
 import json
 import pandas as pd
-from connect import db
+from connect import connect
 
 
 
@@ -18,5 +18,5 @@ def df_to_sql(dataframe, connection):
     print('loaded to Database')
 
 
-df_to_sql(df, db)
+df_to_sql(df, connect())
 

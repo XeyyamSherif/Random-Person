@@ -1,11 +1,17 @@
 from flask import Flask, request
 import psycopg2
+import time
 
 app = Flask(__name__)
 
 def connect_to_db():
-    db = psycopg2.connect(user='admin', password= 'admin', host = 'db', 
-        port=5432, database='random_user')
+    while True:
+        try:
+            db = psycopg2.connect(user='admin', password= 'admin', host = 'db', 
+                port=5432, database='random_user')
+            break
+        except:
+            time.sleep(1)
     return db
 
 
